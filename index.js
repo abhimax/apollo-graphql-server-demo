@@ -5,8 +5,13 @@ const typeDefs = gql`
     title: String
     author: String
   }
+  type MainCard {
+    title: String!
+    image: String!
+  }
   type Query {
     books: [Book]
+    mainCard : [MainCard]
   }
 `;
 
@@ -21,9 +26,25 @@ const books = [
     },
   ];
 
+  const mainCard = [
+    {
+      title: 'Lion',
+      image: 'lion-image.jpg',
+    },
+    {
+        title: 'Rabbit',
+        image: 'rabbit-image.jpg',
+      },
+      {
+        title: 'Cat',
+        image: 'cat-image.jpg',
+      },
+  ];
+
   const resolvers = {
     Query: {
       books: () => books,
+      mainCard: () => mainCard,
     },
   };
 
