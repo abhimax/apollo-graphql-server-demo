@@ -10,7 +10,7 @@ const typeDefs = gql`
   type Animal {
     image: String!
     title: String!
-    rating: Float!
+    rating: Float
     price: String!
     description: [String!]!
     stock : Int!
