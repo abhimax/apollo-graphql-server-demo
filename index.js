@@ -8,17 +8,20 @@ const typeDefs = gql`
   }
 
   type Animal {
+    id: ID!
     image: String!
     title: String!
     rating: Float
     price: String!
     description: [String!]!
+    slug: String!
     stock : Int!
     onSale : Boolean
   }
   type Query {
     mainCard : [MainCard]
-    animal : [Animal]
+    animals : [Animal]
+    animal(slug: String!) : Animal
 
   }
 `; 
@@ -28,7 +31,10 @@ const typeDefs = gql`
   const resolvers = {
     Query: {
       mainCard: () => mainCard,
-      animal: () => animals
+      animals: () => animals,
+      animal:(parent, args, ctx) => {
+        console.log(args);
+      }
     },
   };
 
