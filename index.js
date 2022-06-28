@@ -33,7 +33,10 @@ const typeDefs = gql`
       mainCard: () => mainCard,
       animals: () => animals,
       animal:(parent, args, ctx) => {
-        console.log(args);
+        let animal = animals.find((animal)=>{
+          return animal.slug === args.slug
+        })
+        return animal
       }
     },
   };
